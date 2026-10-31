@@ -2,13 +2,14 @@
 #include <string>
 #include <utility>
 #include "DateTime.hpp"
+#include <optional>
 
 class AuditLogEntry{
     private:
         int entryId;
         int submissionId;
         int changedBy;
-        double oldMark;
+        std::optional<double> oldMark;
         double newMark;
         DateTime changedAt;
         std::string reason;
@@ -25,7 +26,7 @@ class AuditLogEntry{
         int getEntryId() const { return entryId; }
         int getSubmissionId() const { return submissionId; }
         int getChangedBy() const { return changedBy; }
-        double getOldMark() const { return oldMark; }
+        std::optional<double> getOldMark() const { return oldMark; }
         double getNewMark() const { return newMark; }
         DateTime getChangedAt() const { return changedAt; }
         std::string getReason() const { return reason; }

@@ -18,5 +18,5 @@ class Extension{
         int getAssignmentId() const { return assignmentId;}
         int getStudentId() const { return studentId; }
 
-        DateTime getNewDeadline() { return newDeadline; }
+        DateTime getNewDeadline() const { return newDeadline; }
 };

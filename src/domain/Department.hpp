@@ -1,10 +1,11 @@
 #pragma once
 #include <string>
 #include <utility>
+#include <optional>
 
 class Department {
     private:
-        int departmentId;
+        std::optional<int> departmentId;
         std::string name;
         std::string hodUserId;
     public:
@@ -13,7 +14,7 @@ class Department {
             name(std::move(n)),
             hodUserId(std::move(hid)) {}
 
-        int getDepartmentId() const { return departmentId; }
+        std::optional<int> getDepartmentId() const { return departmentId; }
         std::string getName() const { return name; }
         std::string getHodUserId() const { return hodUserId; }
         void setName(std::string newName) { name = newName; }
