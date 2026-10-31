@@ -6,55 +6,22 @@
 #include <vector>
 #include <memory>
 #include "domain/User.hpp"
+#include "domain/Student.hpp"
+#include "domain/Lecturer.hpp"
+#include "domain/HeadOfDepartment.hpp"
+#include "domain/Administrator.hpp"
 
 using namespace std;
 
 // 1. Domain: users
 
 
-class Student : public User {
-public: using User::User;
-    void showMenu() const override{
-        cout << "Student menu\n"
-         << "1. View my courses and assignments\n"
-         << "2. Submit assignment\n"
-         << "3. View released marks and feedback\n"
-         << "0. Log out\n";
-    }
-};
 
-class Lecturer : public User {
-public: using User::User;
-    void showMenu() const override{
-        cout << "Lecturer menu\n"
-         << "1. Create assignment\n"
-         << "2. Grant extension\n"
-         << "3. Mark submissions and write feedback\n"
-         << "0. Log out\n";
-    }
-};
 
-class HeadOfDepartment : public User {
-public: using User::User;
-    void showMenu() const override{
-        cout << "HOD menu\n"
-         << "1. Review and moderate marks\n"
-         << "2. Release approved marks\n"
-         << "0. Log out\n";
-    }
-};
 
-class Administrator : public User {
-public: using User::User;
-    void showMenu() const override{
-        cout << "Administrator menu\n"
-         << "1. Manage Account(s)\n"
-         << "2. Create Department\n"
-         << "3. Create Course\n"
-         << "4. Manage Course(s)\n"
-         << "0. Log out\n";
-    }
-};
+
+
+
 
 
 // 2. Domain: academic data
