@@ -16,8 +16,6 @@
 
 using namespace std;
 
-// 4. Data access (Repository)
-
 // 5. Services
 
 // 6. Console interface
