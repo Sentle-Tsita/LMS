@@ -7,12 +7,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(sqlite_lib third_party/sqlite/sqlite3.c)
 target_include_directories(sqlite_lib PUBLIC third_party/sqlite)
 
-
 # LMS core library
-add_library(lms_core src/data/Database.cpp)
+add_library(lms_core src/data/Database.cpp src/data/Statement.cpp)
 target_include_directories(lms_core PUBLIC src)
 target_link_libraries(lms_core PUBLIC sqlite_lib)
-
+target_compile_definitions(lms_core PUBLIC
+    LMS_SCHEMA_PATH="${CMAKE_SOURCE_DIR}/sql/schema.sql"
+)
 
 # LMS executable
 add_executable(lms src/main.cpp)

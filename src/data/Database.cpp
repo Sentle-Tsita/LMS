@@ -1,6 +1,6 @@
 #include "data/Database.hpp"
 #include <memory>
-
+#include "data/Statement.hpp"
 
 Database::Database(const std::string& filePath) {
     int result = sqlite3_open(filePath.c_str(), &db);
@@ -71,4 +71,17 @@ void Database::execute(const std::string& sql) {
 
         throw DatabaseError(message);
     }
+}
+
+
+bool Database::tableExists(const std::string& name) {
+    Statement statement(
+        *this,
+        "SELECT 1 FROM sqlite_master "
+        "WHERE type = 'table' AND name = ?;"
+    );
+
+    statement.bindText(1, name);
+
+    return statement.step();
 }

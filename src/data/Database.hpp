@@ -30,4 +30,6 @@ public:
     // Executes SQL without parameters or result rows.
     // Use prepared statements for SQL containing user data.
     void execute(const std::string& sql);
+
+    bool tableExists(const std::string& name);
 };
