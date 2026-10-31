@@ -7,121 +7,13 @@
 #include "domain/HeadOfDepartment.hpp"
 #include "domain/Administrator.hpp"
 #include "domain/Submission.hpp"
+#include "domain/Department.hpp"
+#include "domain/Course.hpp"
+#include "domain/Assignment.hpp"
+#include "domain/Extension.hpp"
+#include "domain/AuditLogEntry.hpp"
 
 using namespace std;
-
-// 2. Domain: academic data
-
-class Department {
-    private:
-        int departmentId;
-        string name;
-        string hodUserId;
-    public:
-        Department(int did, string n, string hid)
-            : departmentId(did),
-            name(move(n)),
-            hodUserId(move(hid)) {}
-
-        int getDepartmentId() const { return departmentId; }
-        string getName() const { return name; }
-        string getHodUserId() const { return hodUserId; }
-        void setName(string newName) { name = newName; }
-        void setHodUserId(string newHodUserId) { hodUserId = newHodUserId; }
-
-};
-
-class Course{
-    private:
-        string courseCode;
-        string courseName;
-        int departmentId;
-        int lecturerId;
-    public:
-        Course(string cc, string cn, int did, int lid)
-            : courseCode(move(cc)),
-            courseName(move(cn)),
-            departmentId(did),
-            lecturerId(lid) {}
-
-        string getCourseCode() const { return courseCode; }
-        string getCourseName() const { return courseName; }
-        int getDepartmentId() const { return departmentId;}
-        int getLecturerId() const { return lecturerId; }
-        void setCourseName(string newCourseName) { courseName = newCourseName; }
-        void setDepartmentId(int newDepartmentId) { departmentId = newDepartmentId; }
-        void setLecturerId(int newLecturerId) { lecturerId = newLecturerId; }
-};
-
-class Assignment{
-    private:
-        int assignmentId;
-        string courseCode;
-        string title;
-        DateTime deadline;
-        double maxMark;
-    public:
-        Assignment(int aid, string cc, string t, DateTime d, double mm)
-            : assignmentId(aid),
-            courseCode(move(cc)),
-            title(move(t)),
-            deadline(d),
-            maxMark(mm) {}
-
-        int getAssignmentId() const { return assignmentId;}
-        string getCourseCode() const { return courseCode;}
-        string getTitle() const { return title; }
-        DateTime getDeadline() const { return deadline;}
-        double getMaxMark() const {return maxMark;}
-};
-
-class Extension{
-    private:
-        int extensionId;
-        int assignmentId;
-        int studentId;
-        DateTime newDeadline;
-    public:
-        Extension(int eid, int aid, int sid, DateTime nd)
-            : extensionId(eid),
-            assignmentId(aid),
-            studentId(sid),
-            newDeadline(nd) {}
-
-        int getExtensionId() { return extensionId; }
-        int getAssignmentId() { return assignmentId;}
-        int getStudentId() { return studentId; }
-
-        DateTime getNewDeadline() { return newDeadline; }
-};
-
-class AuditLogEntry{
-    private:
-        int entryId;
-        int submissionId;
-        int changedBy;
-        double oldMark;
-        double newMark;
-        DateTime changedAt;
-        string reason;
-    public:
-        AuditLogEntry(int eid, int sid, int cb, double om, double nm, DateTime ca, string r)
-            : entryId(eid),
-            submissionId(sid),
-            changedBy(cb),
-            oldMark(om),
-            newMark(nm),
-            changedAt(ca),
-            reason(move(r)) {}
-
-        int getEntryId() const { return entryId; }
-        int getSubmissionId() const { return submissionId; }
-        int getChangedBy() const { return changedBy; }
-        double getOldMark() const { return oldMark; }
-        double getNewMark() const { return newMark; }
-        DateTime getChangedAt() { return changedAt; }
-        string getReason() { return reason; }
-};
 
 // 3. Late penalty (Strategy)
 
