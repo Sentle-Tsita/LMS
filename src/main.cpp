@@ -12,39 +12,10 @@
 #include "domain/Assignment.hpp"
 #include "domain/Extension.hpp"
 #include "domain/AuditLogEntry.hpp"
+#include "domain/StandardLatePenalty.hpp"
 
 using namespace std;
 
-// 3. Late penalty (Strategy)
-
-const double HoursPerDay = 24.0;
-const double MaxLateHours = 72.0;
-const double PenaltyPerDay = 0.1;
-
-class LatePenaltyStrategy{
-    public:
-        virtual ~LatePenaltyStrategy() = default;
-        virtual double calculatePenalty(double hoursLate, double maxMark) const = 0;
-};
-
-class StandardLatePenalty: public LatePenaltyStrategy{
-    public:
-        double calculatePenalty(double hoursLate, double maxMark) const override{
-            if(hoursLate <= 0.0){
-                return 0.0;
-            }
-            if (hoursLate > MaxLateHours){
-                return maxMark;
-            }
-            int count = 0;
-            double hoursLeft = hoursLate; 
-            while(hoursLeft > 0.0){
-                count ++;
-                hoursLeft -= HoursPerDay;
-            }
-            return maxMark*count*PenaltyPerDay;
-        }
-};
 // 4. Data access (Repository)
 
 // 5. Services
