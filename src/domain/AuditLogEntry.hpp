@@ -27,6 +27,6 @@ class AuditLogEntry{
         int getChangedBy() const { return changedBy; }
         double getOldMark() const { return oldMark; }
         double getNewMark() const { return newMark; }
-        DateTime getChangedAt() { return changedAt; }
-        std::string getReason() { return reason; }
+        DateTime getChangedAt() const { return changedAt; }
+        std::string getReason() const { return reason; }
 };
