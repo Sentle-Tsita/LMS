@@ -2,10 +2,84 @@
 #include <optional>
 #include <string>
 #include <chrono>
+#include <utility>
+#include <vector>
+#include <memory>
 
 using namespace std;
 
 // 1. Domain: users
+class User {
+    private:
+        int userId;
+        string username;
+        string passwordHash;
+        string salt;
+        bool active = true;
+    public:
+        User(int id, string un, string ph, string sl, bool ac = true)
+            : userId(id),
+            username(move(un)),
+            passwordHash(move(ph)),
+            salt(move(sl)),
+            active(ac) {}
+
+        virtual ~User() = default;
+
+        virtual void showMenu() const = 0;
+
+        int getUserId() const { return userId; }
+        const string& getUsername() const { return username; }
+        const string& getPasswordHash() const { return passwordHash; }
+        const string& getSalt() const { return salt; }
+        bool isActive() const { return active; }
+        void setActive(bool ac) { active = ac; }
+};
+
+class Student : public User {
+public: using User::User;
+    void showMenu() const override{
+        cout << "Student menu\n"
+         << "1. View my courses and assignments\n"
+         << "2. Submit assignment\n"
+         << "3. View released marks and feedback\n"
+         << "0. Log out\n";
+    }
+};
+
+class Lecturer : public User {
+public: using User::User;
+    void showMenu() const override{
+        cout << "Lecturer menu\n"
+         << "1. Create assignment\n"
+         << "2. Grant extension\n"
+         << "3. Mark submissions and write feedback\n"
+         << "0. Log out\n";
+    }
+};
+
+class HeadOfDepartment : public User {
+public: using User::User;
+    void showMenu() const override{
+        cout << "HOD menu\n"
+         << "1. Review and moderate marks\n"
+         << "2. Release approved marks\n"
+         << "0. Log out\n";
+    }
+};
+
+class Administrator : public User {
+public: using User::User;
+    void showMenu() const override{
+        cout << "Administrator menu\n"
+         << "1. Manage Account(s)\n"
+         << "2. Create Department\n"
+         << "3. Create Course\n"
+         << "4. Manage Course(s)\n"
+         << "0. Log out\n";
+    }
+};
+
 
 // 2. Domain: academic data
 
@@ -107,13 +181,24 @@ int main() {
     Submission submission(1, 101, "assignment.pdf",
                      chrono::system_clock::now());
 
-    cout << "Mark is empty: " << submission.getMark().has_value() << "\n";
+    cout << "Has mark: " << submission.getMark().has_value() << "\n";
 
     submission.setMark(15.5);
     cout << "Mark: " << *submission.getMark() << "\n";
 
     cout << "Status: " 
         << static_cast<int>(submission.getStatus()) << "\n";
+
+    vector<unique_ptr<User>> users;
+    users.push_back(make_unique<Student>(1, "s202322646", "hash", "salt"));
+    users.push_back(make_unique<Lecturer>(1, "l202323232", "hash", "salt"));
+    users.push_back(make_unique<HeadOfDepartment>(1, "h202322323", "hash", "salt"));
+    users.push_back(make_unique<Administrator>(1, "a202322222", "hash", "salt"));
+
+    for (const auto& u : users) {
+        u->showMenu();
+    }
+
     return 0;
 }
 #endif
