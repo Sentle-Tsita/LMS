@@ -1,8 +1,4 @@
 #include <iostream>
-#include <optional>
-#include <string>
-#include <chrono>
-#include <utility>
 #include <vector>
 #include <memory>
 #include "domain/User.hpp"
@@ -10,68 +6,11 @@
 #include "domain/Lecturer.hpp"
 #include "domain/HeadOfDepartment.hpp"
 #include "domain/Administrator.hpp"
+#include "domain/Submission.hpp"
 
 using namespace std;
 
-// 1. Domain: users
-
-
-
-
-
-
-
-
-
-
 // 2. Domain: academic data
-
-using DateTime = chrono::system_clock::time_point;
-
-enum class SubmissionStatus {
-    Submitted,
-    Late,
-    Marked,
-    Moderated,
-    Released,
-    UnderReview
-};
-
-class Submission {
-    private:
-        int submissionId = 0;
-        int studentId;
-        int assignmentId;
-        string filePath;
-        DateTime submittedAt;
-        SubmissionStatus status = SubmissionStatus::Submitted;
-        optional<double> mark;
-        string feedback;
-
-    public:
-        Submission(int sid, int aid, string fp, DateTime sa)
-            : studentId(sid),
-            assignmentId(aid),
-            filePath(move(fp)),
-            submittedAt(sa) {}
-
-        int getSubmissionId() const { return submissionId; }
-        void setSubmissionId(int id) { submissionId = id; }
-
-        int getStudentId() const { return studentId; }
-        int getAssignmentId() const { return assignmentId; }
-        const string& getFilePath() const { return filePath; }
-        DateTime getSubmittedAt() const { return submittedAt; }
-
-        SubmissionStatus getStatus() const { return status; }
-        void setStatus(SubmissionStatus st) { status = st; }
-
-        optional<double> getMark() const { return mark; }
-        void setMark(double m) { mark = m; }
-
-        const string& getFeedback() const { return feedback; }
-        void setFeedback(string fb) { feedback = move(fb); }
-};
 
 class Department {
     private:
