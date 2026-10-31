@@ -10,7 +10,7 @@ class Course{
         int departmentId;
         std::optional<int> lecturerId;
     public:
-        Course(std::string cc, std::string cn, int did, int lid)
+        Course(std::string cc, std::string cn, int did, std::optional<int> lid)
             : courseCode(std::move(cc)),
             courseName(std::move(cn)),
             departmentId(did),
@@ -22,5 +22,5 @@ class Course{
         std::optional<int> getLecturerId() const { return lecturerId; }
         void setCourseName(std::string newCourseName) { courseName = newCourseName; }
         void setDepartmentId(int newDepartmentId) { departmentId = newDepartmentId; }
-        void setLecturerId(int newLecturerId) { lecturerId = newLecturerId; }
+        void setLecturerId(std::optional<int> newLecturerId) { lecturerId = newLecturerId; }
 };

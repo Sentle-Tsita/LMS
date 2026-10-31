@@ -14,7 +14,7 @@ class AuditLogEntry{
         DateTime changedAt;
         std::string reason;
     public:
-        AuditLogEntry(int eid, int sid, int cb, double om, double nm, DateTime ca, std::string r)
+        AuditLogEntry(int eid, int sid, int cb, std::optional<double> om, double nm, DateTime ca, std::string r)
             : entryId(eid),
             submissionId(sid),
             changedBy(cb),
