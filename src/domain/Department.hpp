@@ -6,17 +6,17 @@ class Department {
     private:
         int departmentId;
         std::string name;
-        std::string hodUserId;
+        std::optional<int> hodUserId;
     public:
-        Department(int did, std::string n, std::string hid)
+        Department(int did, std::string n, std::optional<int> hid)
             : departmentId(did),
             name(std::move(n)),
-            hodUserId(std::move(hid)) {}
+            hodUserId(hid) {}
 
         int getDepartmentId() const { return departmentId; }
         std::string getName() const { return name; }
-        std::string getHodUserId() const { return hodUserId; }
+        std::optional<int> getHodUserId() const { return hodUserId; }
         void setName(std::string newName) { name = newName; }
-        void setHodUserId(std::string newHodUserId) { hodUserId = newHodUserId; }
+        void setHodUserId(int newHodUserId) { hodUserId = newHodUserId; }
 
 };
