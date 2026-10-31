@@ -5,36 +5,12 @@
 #include <utility>
 #include <vector>
 #include <memory>
+#include "domain/User.hpp"
 
 using namespace std;
 
 // 1. Domain: users
-class User {
-    private:
-        int userId;
-        string username;
-        string passwordHash;
-        string salt;
-        bool active = true;
-    public:
-        User(int id, string un, string ph, string sl, bool ac = true)
-            : userId(id),
-            username(move(un)),
-            passwordHash(move(ph)),
-            salt(move(sl)),
-            active(ac) {}
 
-        virtual ~User() = default;
-
-        virtual void showMenu() const = 0;
-
-        int getUserId() const { return userId; }
-        const string& getUsername() const { return username; }
-        const string& getPasswordHash() const { return passwordHash; }
-        const string& getSalt() const { return salt; }
-        bool isActive() const { return active; }
-        void setActive(bool ac) { active = ac; }
-};
 
 class Student : public User {
 public: using User::User;
