@@ -1,83 +1,66 @@
+#include <filesystem>
 #include <iostream>
-#include <vector>
-#include <memory>
-#include "domain/User.hpp"
-#include "domain/Student.hpp"
-#include "domain/Lecturer.hpp"
-#include "domain/HeadOfDepartment.hpp"
-#include "domain/Administrator.hpp"
-#include "domain/Submission.hpp"
-#include "domain/Department.hpp"
-#include "domain/Course.hpp"
-#include "domain/Assignment.hpp"
-#include "domain/Extension.hpp"
-#include "domain/AuditLogEntry.hpp"
-#include "domain/StandardLatePenalty.hpp"
+#include <string>
+
+#include "data/CourseRepository.hpp"
 #include "data/Database.hpp"
-#include "data/Statement.hpp"
-#include <fstream>
-#include <sstream>
+#include "data/Mappers.hpp"
+#include "data/SubmissionRepository.hpp"
+#include "domain/StandardLatePenalty.hpp"
+#include "security/PasswordHasher.hpp"
+#include "services/AccountService.hpp"
+#include "services/AssignmentService.hpp"
+#include "services/ModerationService.hpp"
+#include "services/SubmissionService.hpp"
+#include "storage/FileStorage.hpp"
+#include "ui/ConsoleApp.hpp"
+#include "ui/DemoData.hpp"
 
-using namespace std;
-
-// 5. Services
-
-// 6. Console interface
-
-void initializeDatabase(Database& db) {
-    if (db.tableExists("user")) {
-        cout << "Database already initialized." << endl;
-        return;
-    }
-
-    ifstream file(LMS_SCHEMA_PATH);
-
-    if (!file.is_open()) {
-        throw DatabaseError(
-            "Could not open schema file: " LMS_SCHEMA_PATH
-        );
-    }
-
-    stringstream buffer;
-    buffer << file.rdbuf();
-
-    if (file.bad()) {
-        throw DatabaseError("Could not read schema file.");
-    }
-
-    db.execute("BEGIN;");
-
+// Wires the layers together: database -> repositories -> services -> console menus.
+int main(int argc, char** argv) {
     try {
-        db.execute(buffer.str());
-        db.execute("COMMIT;");
-    }
-    catch (...) {
-        try {
-            db.execute("ROLLBACK;");
-        }
-        catch (...) {
-            // Preserve the original exception.
-        }
+        const bool demo = argc > 1 && std::string(argv[1]) == "--demo";
 
-        throw;
-    }
-
-    cout << "Database initialized successfully." << endl;
-}
-
-#ifndef LMS_TESTING
-int main() {
-    cout << "LMS v0.1\n";
-     try {
         Database db("lms.db");
-        initializeDatabase(db);
+        // Use sql/schema.sql next to the program if it is there, otherwise the build-time location.
+        const std::string schema = std::filesystem::exists("sql/schema.sql") ? "sql/schema.sql" : LMS_SCHEMA_PATH;
+        db.initialiseSchema(schema);
 
-        cout << "Database connection established." << endl;
-    }
-    catch (const DatabaseError& e) {
-        cerr << "Database error: " << e.what() << endl;
+        UserMapper userMapper;
+        DepartmentMapper departmentMapper;
+        CourseMapper courseMapper;
+        AssignmentMapper assignmentMapper;
+        ExtensionMapper extensionMapper;
+        SubmissionMapper submissionMapper;
+        AuditLogMapper auditMapper;
+
+        SqliteRepository<std::unique_ptr<User>, int> users(db, userMapper);
+        SqliteRepository<Department, int> departments(db, departmentMapper);
+        CourseRepository courses(db, courseMapper);
+        SqliteRepository<Assignment, int> assignmentRepo(db, assignmentMapper);
+        SqliteRepository<Extension, int> extensions(db, extensionMapper);
+        SubmissionRepository submissions(db, submissionMapper);
+        SqliteRepository<AuditLogEntry, int> auditLog(db, auditMapper);
+
+        PasswordHasher hasher;
+        StandardLatePenalty penalty;
+        FileStorage storage("submissions");
+
+        AccountService accounts(users, departments, courses, hasher);
+        AssignmentService assignments(assignmentRepo, extensions, courses);
+        SubmissionService submissionService(submissions, assignments, courses, auditLog, penalty, storage);
+        ModerationService moderation(submissions, assignmentRepo, auditLog);
+
+        if (demo && !accounts.hasUsers()) {
+            seedDemoData(accounts, assignments);
+            std::cout << "Demo data created. All demo accounts use the password Password123.\n";
+        }
+
+        ConsoleApp app(accounts, assignments, submissionService, moderation, std::cin, std::cout);
+        app.run();
+        return 0;
+    } catch (const std::exception& error) {
+        std::cerr << "Fatal error: " << error.what() << '\n';
         return 1;
     }
-    return 0;
 }
-#endif

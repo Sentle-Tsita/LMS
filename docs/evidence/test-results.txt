@@ -1,0 +1,47 @@
+Running main() from /tmp/lms2/build-cov/_deps/googletest-src/googletest/src/gtest_main.cc
+[==========] Running 132 tests from 13 test suites.
+[----------] Global test environment set-up.
+[----------] 8 tests from DateTime
+[----------] 8 tests from DateTime (0 ms total)
+
+[----------] 2 tests from Penalty
+[----------] 2 tests from Penalty (0 ms total)
+
+[----------] 7 tests from PasswordHasher
+[----------] 7 tests from PasswordHasher (5 ms total)
+
+[----------] 7 tests from FileStorageTest
+[----------] 7 tests from FileStorageTest (64 ms total)
+
+[----------] 17 tests from SchemaTest
+[----------] 17 tests from SchemaTest (13 ms total)
+
+[----------] 1 test from DatabaseConnection
+[----------] 1 test from DatabaseConnection (0 ms total)
+
+[----------] 16 tests from RepositoryTest
+[----------] 16 tests from RepositoryTest (31 ms total)
+
+[----------] 27 tests from ServiceTest
+[----------] 27 tests from ServiceTest (108 ms total)
+
+[----------] 8 tests from ModerationTest
+[----------] 8 tests from ModerationTest (35 ms total)
+
+[----------] 16 tests from SystemTest
+[----------] 16 tests from SystemTest (99 ms total)
+
+[----------] 3 tests from NonFunctional
+[ NFR-01 ] slowest of 10 logins with 800 students stored: 0.224539 s (limit 2 s)
+[ NFR-02 ] slowest of 5 submissions of a 5 MB file: 0.00191996 s (limit 10 s)
+[----------] 3 tests from NonFunctional (1782 ms total)
+
+[----------] 11 tests from Boundaries/PenaltyBoundary
+[----------] 11 tests from Boundaries/PenaltyBoundary (0 ms total)
+
+[----------] 9 tests from Boundaries/MarkingPenalty
+[----------] 9 tests from Boundaries/MarkingPenalty (40 ms total)
+
+[----------] Global test environment tear-down
+[==========] 132 tests from 13 test suites ran. (2181 ms total)
+[  PASSED  ] 132 tests.

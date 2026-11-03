@@ -1,5 +1,7 @@
 #include "data/Database.hpp"
+#include <fstream>
 #include <memory>
+#include <sstream>
 #include "data/Statement.hpp"
 
 Database::Database(const std::string& filePath) {
@@ -84,4 +86,35 @@ bool Database::tableExists(const std::string& name) {
     statement.bindText(1, name);
 
     return statement.step();
+}
+
+
+bool Database::initialiseSchema(const std::string& schemaPath) {
+    if (tableExists("user")) {
+        return false;
+    }
+
+    std::ifstream file(schemaPath);
+    if (!file.is_open()) {
+        throw DatabaseError("Could not open schema file: " + schemaPath);
+    }
+    std::stringstream buffer;
+    buffer << file.rdbuf();
+    if (file.bad()) {
+        throw DatabaseError("Could not read schema file: " + schemaPath);
+    }
+
+    execute("BEGIN;");
+    try {
+        execute(buffer.str());
+        execute("COMMIT;");
+    } catch (...) {
+        try {
+            execute("ROLLBACK;");
+        } catch (...) {
+            // Keep the original error.
+        }
+        throw;
+    }
+    return true;
 }

@@ -32,4 +32,8 @@ public:
     void execute(const std::string& sql);
 
     bool tableExists(const std::string& name);
+
+    // Creates all tables from the schema file, in one transaction, unless they already exist.
+    // Returns true if the schema was created, false if the database was already set up.
+    bool initialiseSchema(const std::string& schemaPath);
 };

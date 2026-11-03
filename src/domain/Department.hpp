@@ -1,4 +1,5 @@
 #pragma once
+#include <optional>
 #include <string>
 #include <utility>
 
@@ -16,7 +17,7 @@ class Department {
         int getDepartmentId() const { return departmentId; }
         std::string getName() const { return name; }
         std::optional<int> getHodUserId() const { return hodUserId; }
-        void setName(std::string newName) { name = newName; }
+        void setName(const std::string& newName) { name = newName; }
         void setHodUserId(int newHodUserId) { hodUserId = newHodUserId; }
 
 };

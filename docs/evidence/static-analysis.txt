@@ -1,0 +1,9 @@
+Static analysis with cppcheck 2.13.0 on 2026-11-01
+Command: cppcheck --enable=warning,style,performance,portability --std=c++17 --error-exitcode=1 --inline-suppr -I src src
+
+First run: 10 findings (3 real, 7 style). All were fixed:
+  constParameterReference  Statement constructor now takes const Database&
+  passedByValue (2)        Course::setCourseName and Department::setName now take const std::string&
+  useStlAlgorithm (7)      raw loops replaced by std::any_of, std::copy_if and vector::insert
+
+Final run: no findings, exit code 0
