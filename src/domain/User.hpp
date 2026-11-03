@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include <string>
 #include <utility>
 
@@ -12,14 +13,17 @@ class User {
     public:
         User(int id, std::string un, std::string ph, std::string sl, bool ac = true)
             : userId(id),
-            username(move(un)),
-            passwordHash(move(ph)),
-            salt(move(sl)),
+            username(std::move(un)),
+            passwordHash(std::move(ph)),
+            salt(std::move(sl)),
             active(ac) {}
 
         virtual ~User() = default;
 
-        virtual void showMenu() const = 0;
+        // Prints the role's menu to the given stream (polymorphism: one menu per role).
+        virtual void showMenu(std::ostream& out) const = 0;
+        // Role name as stored in the database: ADMINISTRATOR, LECTURER, HOD or STUDENT.
+        virtual std::string roleName() const = 0;
 
         int getUserId() const { return userId; }
         const std::string& getUsername() const { return username; }

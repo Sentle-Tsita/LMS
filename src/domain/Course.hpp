@@ -20,7 +20,7 @@ class Course{
         std::string getCourseName() const { return courseName; }
         int getDepartmentId() const { return departmentId;}
         std::optional<int> getLecturerId() const { return lecturerId; }
-        void setCourseName(std::string newCourseName) { courseName = newCourseName; }
+        void setCourseName(const std::string& newCourseName) { courseName = newCourseName; }
         void setDepartmentId(int newDepartmentId) { departmentId = newDepartmentId; }
         void setLecturerId(std::optional<int> newLecturerId) { lecturerId = newLecturerId; }
 };
