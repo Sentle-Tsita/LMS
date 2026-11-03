@@ -1,3 +1,9 @@
 build/
-*.exe
+build-cov/
+submissions/
 *.db
+*.db-journal
+*.exe
+coverage*.xml
+coverage*.html
+.vscode/
