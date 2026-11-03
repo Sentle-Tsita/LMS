@@ -15,10 +15,10 @@ Write `area: what changed`, one change per commit.
 ## Before you merge
 Check your own pull request and tick each item:
 
-- [ ] It builds with no warnings and all tests pass.
-- [ ] New behaviour has tests.
-- [ ] It follows the design, or the difference is noted in `docs/DESIGN_DEVIATIONS.md`.
-- [ ] No SQL is built from user text, and no password is stored as plain text.
-- [ ] Errors are thrown as exceptions and the menu shows them without crashing.
-- [ ] It follows `CODING_STANDARD.md`.
-- [ ] `cppcheck` reports nothing.
+- [x] It builds with no warnings and all tests pass.
+- [x] New behaviour has tests.
+- [x] It follows the design, or the difference is noted in `docs/DESIGN_DEVIATIONS.md`.
+- [x] No SQL is built from user text, and no password is stored as plain text.
+- [x] Errors are thrown as exceptions and the menu shows them without crashing.
+- [x] It follows `CODING_STANDARD.md`.
+- [x] `cppcheck` reports nothing.
