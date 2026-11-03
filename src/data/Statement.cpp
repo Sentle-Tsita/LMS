@@ -2,7 +2,7 @@
 #include "data/Statement.hpp"
 
 
-Statement::Statement(Database& database, const std::string& sql) {
+Statement::Statement(const Database& database, const std::string& sql) {
     db = database.getConnection();
 
     int result = sqlite3_prepare_v2(

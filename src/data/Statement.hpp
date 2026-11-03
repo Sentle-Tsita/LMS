@@ -11,7 +11,7 @@ private:
 
 public:
     // Prepare the SQL statement.
-    Statement(Database& database, const std::string& sql);
+    Statement(const Database& database, const std::string& sql);
 
     // Finalize the prepared statement.
     ~Statement();
