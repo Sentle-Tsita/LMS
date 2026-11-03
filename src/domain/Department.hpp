@@ -15,7 +15,7 @@ class Department {
             hodUserId(hid) {}
 
         int getDepartmentId() const { return departmentId; }
-        std::string getName() const { return name; }
+        const std::string& getName() const { return name; }
         std::optional<int> getHodUserId() const { return hodUserId; }
         void setName(const std::string& newName) { name = newName; }
         void setHodUserId(int newHodUserId) { hodUserId = newHodUserId; }

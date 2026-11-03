@@ -1,47 +1,325 @@
-Running main() from /tmp/lms2/build-cov/_deps/googletest-src/googletest/src/gtest_main.cc
+﻿AUTOMATED TEST RESULTS
+Project: Moderated Learning Management System (LMS)
+Date: 3 November 2026
+Framework: GoogleTest
+Executable: build-cov/lms_tests.exe
+
+Command:
+.\build-cov\lms_tests.exe
+
+Purpose:
+Records the results of the automated test suites.
+
+RESULTS
+
+Running main() from C:\LMS\build-cov\_deps\googletest-src\googletest\src\gtest_main.cc
 [==========] Running 132 tests from 13 test suites.
 [----------] Global test environment set-up.
-[----------] 8 tests from DateTime
-[----------] 8 tests from DateTime (0 ms total)
-
-[----------] 2 tests from Penalty
-[----------] 2 tests from Penalty (0 ms total)
-
-[----------] 7 tests from PasswordHasher
-[----------] 7 tests from PasswordHasher (5 ms total)
-
-[----------] 7 tests from FileStorageTest
-[----------] 7 tests from FileStorageTest (64 ms total)
-
-[----------] 17 tests from SchemaTest
-[----------] 17 tests from SchemaTest (13 ms total)
-
-[----------] 1 test from DatabaseConnection
-[----------] 1 test from DatabaseConnection (0 ms total)
-
-[----------] 16 tests from RepositoryTest
-[----------] 16 tests from RepositoryTest (31 ms total)
-
-[----------] 27 tests from ServiceTest
-[----------] 27 tests from ServiceTest (108 ms total)
-
-[----------] 8 tests from ModerationTest
-[----------] 8 tests from ModerationTest (35 ms total)
+[----------] 3 tests from NonFunctional
+[ RUN      ] NonFunctional.LoginIsFastWith800StudentsStored
+[ NFR-01 ] slowest of 10 logins with 800 students stored: 1.09645 s (limit 2 s)
+[       OK ] NonFunctional.LoginIsFastWith800StudentsStored (11150 ms)
+[ RUN      ] NonFunctional.SubmittingA5MegabyteFileIsFast
+[ NFR-02 ] slowest of 5 submissions of a 5 MB file: 0.0577139 s (limit 10 s)
+[       OK ] NonFunctional.SubmittingA5MegabyteFileIsFast (248 ms)
+[ RUN      ] NonFunctional.DataSurvivesClosingAndReopeningTheDatabase
+[       OK ] NonFunctional.DataSurvivesClosingAndReopeningTheDatabase (644 ms)
+[----------] 3 tests from NonFunctional (12043 ms total)
 
 [----------] 16 tests from SystemTest
-[----------] 16 tests from SystemTest (99 ms total)
+[ RUN      ] SystemTest.WrongPasswordIsRefusedAndTheRightOneWorks
+[       OK ] SystemTest.WrongPasswordIsRefusedAndTheRightOneWorks (21 ms)
+[ RUN      ] SystemTest.EachRoleSeesOnlyItsOwnMenu
+[       OK ] SystemTest.EachRoleSeesOnlyItsOwnMenu (32 ms)
+[ RUN      ] SystemTest.AStudentCannotUseAnotherRolesOptions
+[       OK ] SystemTest.AStudentCannotUseAnotherRolesOptions (30 ms)
+[ RUN      ] SystemTest.DeactivatedUserCannotLogIn
+[       OK ] SystemTest.DeactivatedUserCannotLogIn (12 ms)
+[ RUN      ] SystemTest.AdministratorSetsUpAccountsCoursesAndEnrolment
+[       OK ] SystemTest.AdministratorSetsUpAccountsCoursesAndEnrolment (36 ms)
+[ RUN      ] SystemTest.FirstRunCreatesTheFirstAdministrator
+[       OK ] SystemTest.FirstRunCreatesTheFirstAdministrator (15 ms)
+[ RUN      ] SystemTest.LecturerCreatesAnAssignmentAndStudentSeesAndSubmitsIt
+[       OK ] SystemTest.LecturerCreatesAnAssignmentAndStudentSeesAndSubmitsIt (38 ms)
+[ RUN      ] SystemTest.LateWorkIsAcceptedAndFlaggedLate
+[       OK ] SystemTest.LateWorkIsAcceptedAndFlaggedLate (34 ms)
+[ RUN      ] SystemTest.ResubmittingBeforeTheDeadlineReplacesTheFile
+[       OK ] SystemTest.ResubmittingBeforeTheDeadlineReplacesTheFile (35 ms)
+[ RUN      ] SystemTest.BadInputShowsAMessageAndTheMenuCarriesOn
+[       OK ] SystemTest.BadInputShowsAMessageAndTheMenuCarriesOn (29 ms)
+[ RUN      ] SystemTest.TheProgramEndsCleanlyWhenInputCloses
+[       OK ] SystemTest.TheProgramEndsCleanlyWhenInputCloses (22 ms)
+[ RUN      ] SystemTest.LecturerGrantsAnExtensionToOneStudent
+[       OK ] SystemTest.LecturerGrantsAnExtensionToOneStudent (22 ms)
+[ RUN      ] SystemTest.InvalidDatesAreAskedForAgain
+[       OK ] SystemTest.InvalidDatesAreAskedForAgain (24 ms)
+[ RUN      ] SystemTest.FullProcessFromSubmissionToReleasedMark
+[       OK ] SystemTest.FullProcessFromSubmissionToReleasedMark (32 ms)
+[ RUN      ] SystemTest.HodCannotModerateAnotherDepartmentsWork
+[       OK ] SystemTest.HodCannotModerateAnotherDepartmentsWork (31 ms)
+[ RUN      ] SystemTest.VeryLateWorkIsMarkedZeroThroughTheMenus
+[       OK ] SystemTest.VeryLateWorkIsMarkedZeroThroughTheMenus (31 ms)
+[----------] 16 tests from SystemTest (451 ms total)
 
-[----------] 3 tests from NonFunctional
-[ NFR-01 ] slowest of 10 logins with 800 students stored: 0.224539 s (limit 2 s)
-[ NFR-02 ] slowest of 5 submissions of a 5 MB file: 0.00191996 s (limit 10 s)
-[----------] 3 tests from NonFunctional (1782 ms total)
+[----------] 27 tests from ServiceTest
+[ RUN      ] ServiceTest.PasswordsAreStoredOnlyAsSaltedHashes
+[       OK ] ServiceTest.PasswordsAreStoredOnlyAsSaltedHashes (17 ms)
+[ RUN      ] ServiceTest.LoginSucceedsWithTheRightPassword
+[       OK ] ServiceTest.LoginSucceedsWithTheRightPassword (15 ms)
+[ RUN      ] ServiceTest.LoginFailsWithAWrongPasswordOrUnknownUser
+[       OK ] ServiceTest.LoginFailsWithAWrongPasswordOrUnknownUser (32 ms)
+[ RUN      ] ServiceTest.DeactivatedUserCannotLogIn
+[       OK ] ServiceTest.DeactivatedUserCannotLogIn (12 ms)
+[ RUN      ] ServiceTest.InvalidAccountDetailsAreRejected
+[       OK ] ServiceTest.InvalidAccountDetailsAreRejected (30 ms)
+[ RUN      ] ServiceTest.SetupRulesForDepartmentsCoursesAndEnrolment
+[       OK ] ServiceTest.SetupRulesForDepartmentsCoursesAndEnrolment (24 ms)
+[ RUN      ] ServiceTest.AdministratorCanAssignALecturerAndEnrolAStudent
+[       OK ] ServiceTest.AdministratorCanAssignALecturerAndEnrolAStudent (23 ms)
+[ RUN      ] ServiceTest.LecturerCreatesAssignmentsOnlyForOwnCourses
+[       OK ] ServiceTest.LecturerCreatesAssignmentsOnlyForOwnCourses (30 ms)
+[ RUN      ] ServiceTest.ExtensionChangesOnlyThatStudentsDeadline
+[       OK ] ServiceTest.ExtensionChangesOnlyThatStudentsDeadline (24 ms)
+[ RUN      ] ServiceTest.GrantingAgainReplacesTheEarlierExtension
+[       OK ] ServiceTest.GrantingAgainReplacesTheEarlierExtension (30 ms)
+[ RUN      ] ServiceTest.ExtensionRules
+[       OK ] ServiceTest.ExtensionRules (21 ms)
+[ RUN      ] ServiceTest.StudentsSeeOnlyTheirOwnCoursesAndAssignments
+[       OK ] ServiceTest.StudentsSeeOnlyTheirOwnCoursesAndAssignments (22 ms)
+[ RUN      ] ServiceTest.OnTimeWorkIsSubmitted
+[       OK ] ServiceTest.OnTimeWorkIsSubmitted (31 ms)
+[ RUN      ] ServiceTest.WorkExactlyAtTheDeadlineIsOnTimeAndOneSecondLaterIsLate
+[       OK ] ServiceTest.WorkExactlyAtTheDeadlineIsOnTimeAndOneSecondLaterIsLate (33 ms)
+[ RUN      ] ServiceTest.LateWorkIsAcceptedAndSavedAsLate
+[       OK ] ServiceTest.LateWorkIsAcceptedAndSavedAsLate (22 ms)
+[ RUN      ] ServiceTest.AnExtensionMovesTheLateBoundary
+[       OK ] ServiceTest.AnExtensionMovesTheLateBoundary (33 ms)
+[ RUN      ] ServiceTest.SubmissionRules
+[       OK ] ServiceTest.SubmissionRules (36 ms)
+[ RUN      ] ServiceTest.ARejectedFileLeavesNoSubmissionBehind
+[       OK ] ServiceTest.ARejectedFileLeavesNoSubmissionBehind (20 ms)
+[ RUN      ] ServiceTest.ResubmittingBeforeTheDeadlineReplacesTheEarlierSubmission
+[       OK ] ServiceTest.ResubmittingBeforeTheDeadlineReplacesTheEarlierSubmission (30 ms)
+[ RUN      ] ServiceTest.ResubmittingAfterTheDeadlineIsRejected
+[       OK ] ServiceTest.ResubmittingAfterTheDeadlineIsRejected (30 ms)
+[ RUN      ] ServiceTest.LateWorkCannotBeResubmitted
+[       OK ] ServiceTest.LateWorkCannotBeResubmitted (23 ms)
+[ RUN      ] ServiceTest.MarkedWorkCannotBeResubmitted
+[       OK ] ServiceTest.MarkedWorkCannotBeResubmitted (33 ms)
+[ RUN      ] ServiceTest.ResubmittingNeedsAnEarlierSubmission
+[       OK ] ServiceTest.ResubmittingNeedsAnEarlierSubmission (15 ms)
+[ RUN      ] ServiceTest.TheFinalMarkNeverGoesBelowZero
+[       OK ] ServiceTest.TheFinalMarkNeverGoesBelowZero (34 ms)
+[ RUN      ] ServiceTest.MarkingSavesMarkFeedbackStatusAndAnAuditEntry
+[       OK ] ServiceTest.MarkingSavesMarkFeedbackStatusAndAnAuditEntry (26 ms)
+[ RUN      ] ServiceTest.MarkingRules
+[       OK ] ServiceTest.MarkingRules (24 ms)
+[ RUN      ] ServiceTest.LecturerSeesOnlyWorkWaitingForMarking
+[       OK ] ServiceTest.LecturerSeesOnlyWorkWaitingForMarking (34 ms)
+[----------] 27 tests from ServiceTest (718 ms total)
 
-[----------] 11 tests from Boundaries/PenaltyBoundary
-[----------] 11 tests from Boundaries/PenaltyBoundary (0 ms total)
+[----------] 8 tests from ModerationTest
+[ RUN      ] ModerationTest.HodSeesOnlyMarkedWorkInTheirOwnDepartment
+[       OK ] ModerationTest.HodSeesOnlyMarkedWorkInTheirOwnDepartment (27 ms)
+[ RUN      ] ModerationTest.ChangingAMarkNeedsAReason
+[       OK ] ModerationTest.ChangingAMarkNeedsAReason (23 ms)
+[ RUN      ] ModerationTest.ChangingAMarkIsLoggedWithWhoWhenOldNewAndWhy
+[       OK ] ModerationTest.ChangingAMarkIsLoggedWithWhoWhenOldNewAndWhy (29 ms)
+[ RUN      ] ModerationTest.ModerationRules
+[       OK ] ModerationTest.ModerationRules (21 ms)
+[ RUN      ] ModerationTest.MarksMustBeApprovedBeforeTheyCanBeReleased
+[       OK ] ModerationTest.MarksMustBeApprovedBeforeTheyCanBeReleased (28 ms)
+[ RUN      ] ModerationTest.ApprovedWorkCannotBeChangedOrApprovedAgain
+[       OK ] ModerationTest.ApprovedWorkCannotBeChangedOrApprovedAgain (21 ms)
+[ RUN      ] ModerationTest.OneBadIdReleasesNothing
+[       OK ] ModerationTest.OneBadIdReleasesNothing (29 ms)
+[ RUN      ] ModerationTest.StudentsSeeNothingUntilTheHodReleases
+[       OK ] ModerationTest.StudentsSeeNothingUntilTheHodReleases (26 ms)
+[----------] 8 tests from ModerationTest (209 ms total)
+
+[----------] 16 tests from RepositoryTest
+[ RUN      ] RepositoryTest.DepartmentWithoutAHeadReadsBackAsEmpty
+[       OK ] RepositoryTest.DepartmentWithoutAHeadReadsBackAsEmpty (9 ms)
+[ RUN      ] RepositoryTest.DepartmentWithAHeadReadsBackWithTheHead
+[       OK ] RepositoryTest.DepartmentWithAHeadReadsBackWithTheHead (7 ms)
+[ RUN      ] RepositoryTest.SavingAnExistingDepartmentUpdatesIt
+[       OK ] RepositoryTest.SavingAnExistingDepartmentUpdatesIt (4 ms)
+[ RUN      ] RepositoryTest.MissingIdGivesAnEmptyResult
+[       OK ] RepositoryTest.MissingIdGivesAnEmptyResult (3 ms)
+[ RUN      ] RepositoryTest.UpdatingARowThatDoesNotExistThrows
+[       OK ] RepositoryTest.UpdatingARowThatDoesNotExistThrows (3 ms)
+[ RUN      ] RepositoryTest.ForeignKeyViolationThrows
+[       OK ] RepositoryTest.ForeignKeyViolationThrows (2 ms)
+[ RUN      ] RepositoryTest.UsersComeBackAsTheirRoleSubclass
+[       OK ] RepositoryTest.UsersComeBackAsTheirRoleSubclass (7 ms)
+[ RUN      ] RepositoryTest.FindWhereMatchesOnAColumn
+[       OK ] RepositoryTest.FindWhereMatchesOnAColumn (16 ms)
+[ RUN      ] RepositoryTest.ValuesAreBoundSoInjectionTextIsJustText
+[       OK ] RepositoryTest.ValuesAreBoundSoInjectionTextIsJustText (7 ms)
+[ RUN      ] RepositoryTest.UnknownColumnNamesAreRejected
+[       OK ] RepositoryTest.UnknownColumnNamesAreRejected (3 ms)
+[ RUN      ] RepositoryTest.CourseSaveInsertsThenUpdates
+[       OK ] RepositoryTest.CourseSaveInsertsThenUpdates (3 ms)
+[ RUN      ] RepositoryTest.EnrolmentQueries
+[       OK ] RepositoryTest.EnrolmentQueries (12 ms)
+[ RUN      ] RepositoryTest.AssignmentAndExtensionKeepTheirDates
+[       OK ] RepositoryTest.AssignmentAndExtensionKeepTheirDates (26 ms)
+[ RUN      ] RepositoryTest.SubmissionKeepsStatusMarkAndFeedback
+[       OK ] RepositoryTest.SubmissionKeepsStatusMarkAndFeedback (13 ms)
+[ RUN      ] RepositoryTest.JoinQueriesFindTheRightPeople
+[       OK ] RepositoryTest.JoinQueriesFindTheRightPeople (11 ms)
+[ RUN      ] RepositoryTest.AuditEntryWithoutAnOldMarkReadsBackAsEmpty
+[       OK ] RepositoryTest.AuditEntryWithoutAnOldMarkReadsBackAsEmpty (28 ms)
+[----------] 16 tests from RepositoryTest (162 ms total)
+
+[----------] 17 tests from SchemaTest
+[ RUN      ] SchemaTest.AllEightTablesExist
+[       OK ] SchemaTest.AllEightTablesExist (2 ms)
+[ RUN      ] SchemaTest.SchemaIsCreatedOnlyOnce
+[       OK ] SchemaTest.SchemaIsCreatedOnlyOnce (4 ms)
+[ RUN      ] SchemaTest.MissingSchemaFileThrows
+[       OK ] SchemaTest.MissingSchemaFileThrows (1 ms)
+[ RUN      ] SchemaTest.TableNameLookupIsNotInjectable
+[       OK ] SchemaTest.TableNameLookupIsNotInjectable (1 ms)
+[ RUN      ] SchemaTest.RejectsInvalidSql
+[       OK ] SchemaTest.RejectsInvalidSql (1 ms)
+[ RUN      ] SchemaTest.RejectsUnknownRole
+[       OK ] SchemaTest.RejectsUnknownRole (1 ms)
+[ RUN      ] SchemaTest.UsernamesAreUnique
+[       OK ] SchemaTest.UsernamesAreUnique (1 ms)
+[ RUN      ] SchemaTest.ForeignKeysAreEnforced
+[       OK ] SchemaTest.ForeignKeysAreEnforced (1 ms)
+[ RUN      ] SchemaTest.RejectsUnknownSubmissionStatus
+[       OK ] SchemaTest.RejectsUnknownSubmissionStatus (2 ms)
+[ RUN      ] SchemaTest.AcceptsEverySubmissionStatusInTheStateMachine
+[       OK ] SchemaTest.AcceptsEverySubmissionStatusInTheStateMachine (12 ms)
+[ RUN      ] SchemaTest.MarkCannotBeNegative
+[       OK ] SchemaTest.MarkCannotBeNegative (6 ms)
+[ RUN      ] SchemaTest.OneSubmissionPerStudentPerAssignment
+[       OK ] SchemaTest.OneSubmissionPerStudentPerAssignment (4 ms)
+[ RUN      ] SchemaTest.OneExtensionPerStudentPerAssignment
+[       OK ] SchemaTest.OneExtensionPerStudentPerAssignment (3 ms)
+[ RUN      ] SchemaTest.EnrolmentCannotBeRepeated
+[       OK ] SchemaTest.EnrolmentCannotBeRepeated (3 ms)
+[ RUN      ] SchemaTest.MaximumMarkMustBePositive
+[       OK ] SchemaTest.MaximumMarkMustBePositive (2 ms)
+[ RUN      ] SchemaTest.AuditLogRequiresAReason
+[       OK ] SchemaTest.AuditLogRequiresAReason (2 ms)
+[ RUN      ] SchemaTest.AuditLogAcceptsACompleteEntry
+[       OK ] SchemaTest.AuditLogAcceptsACompleteEntry (2 ms)
+[----------] 17 tests from SchemaTest (56 ms total)
+
+[----------] 1 test from DatabaseConnection
+[ RUN      ] DatabaseConnection.OpeningAnImpossiblePathThrows
+[       OK ] DatabaseConnection.OpeningAnImpossiblePathThrows (0 ms)
+[----------] 1 test from DatabaseConnection (0 ms total)
+
+[----------] 7 tests from FileStorageTest
+[ RUN      ] FileStorageTest.AcceptsAllowedTypes
+[       OK ] FileStorageTest.AcceptsAllowedTypes (54 ms)
+[ RUN      ] FileStorageTest.ExtensionCheckIgnoresCase
+[       OK ] FileStorageTest.ExtensionCheckIgnoresCase (13 ms)
+[ RUN      ] FileStorageTest.RejectsOtherTypes
+[       OK ] FileStorageTest.RejectsOtherTypes (10 ms)
+[ RUN      ] FileStorageTest.RejectsAMissingFile
+[       OK ] FileStorageTest.RejectsAMissingFile (3 ms)
+[ RUN      ] FileStorageTest.SizeLimitIsExactlyFiveMegabytes
+[       OK ] FileStorageTest.SizeLimitIsExactlyFiveMegabytes (25 ms)
+[ RUN      ] FileStorageTest.StoreCopiesTheFileUnderASafeName
+[       OK ] FileStorageTest.StoreCopiesTheFileUnderASafeName (12 ms)
+[ RUN      ] FileStorageTest.StoreRefusesABadFile
+[       OK ] FileStorageTest.StoreRefusesABadFile (5 ms)
+[----------] 7 tests from FileStorageTest (125 ms total)
+
+[----------] 7 tests from PasswordHasher
+[ RUN      ] PasswordHasher.SaltIsRandomAndTheRightLength
+[       OK ] PasswordHasher.SaltIsRandomAndTheRightLength (0 ms)
+[ RUN      ] PasswordHasher.HashIsDeterministicForTheSameSalt
+[       OK ] PasswordHasher.HashIsDeterministicForTheSameSalt (3 ms)
+[ RUN      ] PasswordHasher.DifferentSaltGivesDifferentHash
+[       OK ] PasswordHasher.DifferentSaltGivesDifferentHash (2 ms)
+[ RUN      ] PasswordHasher.HashNeverContainsThePassword
+[       OK ] PasswordHasher.HashNeverContainsThePassword (1 ms)
+[ RUN      ] PasswordHasher.VerifyAcceptsOnlyTheRightPassword
+[       OK ] PasswordHasher.VerifyAcceptsOnlyTheRightPassword (23 ms)
+[ RUN      ] PasswordHasher.IterationCountChangesTheHash
+[       OK ] PasswordHasher.IterationCountChangesTheHash (5 ms)
+[ RUN      ] PasswordHasher.MatchesThePublishedPbkdf2Sha256Vector
+[       OK ] PasswordHasher.MatchesThePublishedPbkdf2Sha256Vector (0 ms)
+[----------] 7 tests from PasswordHasher (36 ms total)
+
+[----------] 2 tests from Penalty
+[ RUN      ] Penalty.ScalesWithTheMaximumMark
+[       OK ] Penalty.ScalesWithTheMaximumMark (0 ms)
+[ RUN      ] Penalty.WorksThroughTheStrategyInterface
+[       OK ] Penalty.WorksThroughTheStrategyInterface (0 ms)
+[----------] 2 tests from Penalty (0 ms total)
+
+[----------] 8 tests from DateTime
+[ RUN      ] DateTime.EpochIsZero
+[       OK ] DateTime.EpochIsZero (0 ms)
+[ RUN      ] DateTime.KnownValue
+[       OK ] DateTime.KnownValue (0 ms)
+[ RUN      ] DateTime.RoundTrip
+[       OK ] DateTime.RoundTrip (0 ms)
+[ RUN      ] DateTime.MinutesOnlyFormatMeansZeroSeconds
+[       OK ] DateTime.MinutesOnlyFormatMeansZeroSeconds (0 ms)
+[ RUN      ] DateTime.LeapDayRules
+[       OK ] DateTime.LeapDayRules (0 ms)
+[ RUN      ] DateTime.RejectsInvalidText
+[       OK ] DateTime.RejectsInvalidText (0 ms)
+[ RUN      ] DateTime.HoursBetweenUsesWholeSeconds
+[       OK ] DateTime.HoursBetweenUsesWholeSeconds (0 ms)
+[ RUN      ] DateTime.FloorToSecondsDropsTheFraction
+[       OK ] DateTime.FloorToSecondsDropsTheFraction (0 ms)
+[----------] 8 tests from DateTime (0 ms total)
 
 [----------] 9 tests from Boundaries/MarkingPenalty
-[----------] 9 tests from Boundaries/MarkingPenalty (40 ms total)
+[ RUN      ] Boundaries/MarkingPenalty.FinalMarkAfterThePenalty/early_3600s
+[       OK ] Boundaries/MarkingPenalty.FinalMarkAfterThePenalty/early_3600s (32 ms)
+[ RUN      ] Boundaries/MarkingPenalty.FinalMarkAfterThePenalty/late_0s
+[       OK ] Boundaries/MarkingPenalty.FinalMarkAfterThePenalty/late_0s (24 ms)
+[ RUN      ] Boundaries/MarkingPenalty.FinalMarkAfterThePenalty/late_1s
+[       OK ] Boundaries/MarkingPenalty.FinalMarkAfterThePenalty/late_1s (34 ms)
+[ RUN      ] Boundaries/MarkingPenalty.FinalMarkAfterThePenalty/late_86400s
+[       OK ] Boundaries/MarkingPenalty.FinalMarkAfterThePenalty/late_86400s (19 ms)
+[ RUN      ] Boundaries/MarkingPenalty.FinalMarkAfterThePenalty/late_86401s
+[       OK ] Boundaries/MarkingPenalty.FinalMarkAfterThePenalty/late_86401s (36 ms)
+[ RUN      ] Boundaries/MarkingPenalty.FinalMarkAfterThePenalty/late_172800s
+[       OK ] Boundaries/MarkingPenalty.FinalMarkAfterThePenalty/late_172800s (21 ms)
+[ RUN      ] Boundaries/MarkingPenalty.FinalMarkAfterThePenalty/late_172801s
+[       OK ] Boundaries/MarkingPenalty.FinalMarkAfterThePenalty/late_172801s (27 ms)
+[ RUN      ] Boundaries/MarkingPenalty.FinalMarkAfterThePenalty/late_259200s
+[       OK ] Boundaries/MarkingPenalty.FinalMarkAfterThePenalty/late_259200s (20 ms)
+[ RUN      ] Boundaries/MarkingPenalty.FinalMarkAfterThePenalty/late_259201s
+[       OK ] Boundaries/MarkingPenalty.FinalMarkAfterThePenalty/late_259201s (30 ms)
+[----------] 9 tests from Boundaries/MarkingPenalty (247 ms total)
+
+[----------] 11 tests from Boundaries/PenaltyBoundary
+[ RUN      ] Boundaries/PenaltyBoundary.DeductionForMaxMark20/early_3600s
+[       OK ] Boundaries/PenaltyBoundary.DeductionForMaxMark20/early_3600s (0 ms)
+[ RUN      ] Boundaries/PenaltyBoundary.DeductionForMaxMark20/late_0s
+[       OK ] Boundaries/PenaltyBoundary.DeductionForMaxMark20/late_0s (0 ms)
+[ RUN      ] Boundaries/PenaltyBoundary.DeductionForMaxMark20/late_1s
+[       OK ] Boundaries/PenaltyBoundary.DeductionForMaxMark20/late_1s (0 ms)
+[ RUN      ] Boundaries/PenaltyBoundary.DeductionForMaxMark20/late_3600s
+[       OK ] Boundaries/PenaltyBoundary.DeductionForMaxMark20/late_3600s (0 ms)
+[ RUN      ] Boundaries/PenaltyBoundary.DeductionForMaxMark20/late_86400s
+[       OK ] Boundaries/PenaltyBoundary.DeductionForMaxMark20/late_86400s (0 ms)
+[ RUN      ] Boundaries/PenaltyBoundary.DeductionForMaxMark20/late_86401s
+[       OK ] Boundaries/PenaltyBoundary.DeductionForMaxMark20/late_86401s (0 ms)
+[ RUN      ] Boundaries/PenaltyBoundary.DeductionForMaxMark20/late_172800s
+[       OK ] Boundaries/PenaltyBoundary.DeductionForMaxMark20/late_172800s (0 ms)
+[ RUN      ] Boundaries/PenaltyBoundary.DeductionForMaxMark20/late_172801s
+[       OK ] Boundaries/PenaltyBoundary.DeductionForMaxMark20/late_172801s (0 ms)
+[ RUN      ] Boundaries/PenaltyBoundary.DeductionForMaxMark20/late_259200s
+[       OK ] Boundaries/PenaltyBoundary.DeductionForMaxMark20/late_259200s (0 ms)
+[ RUN      ] Boundaries/PenaltyBoundary.DeductionForMaxMark20/late_259201s
+[       OK ] Boundaries/PenaltyBoundary.DeductionForMaxMark20/late_259201s (0 ms)
+[ RUN      ] Boundaries/PenaltyBoundary.DeductionForMaxMark20/late_2592000s
+[       OK ] Boundaries/PenaltyBoundary.DeductionForMaxMark20/late_2592000s (0 ms)
+[----------] 11 tests from Boundaries/PenaltyBoundary (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 132 tests from 13 test suites ran. (2181 ms total)
+[==========] 132 tests from 13 test suites ran. (14053 ms total)
 [  PASSED  ] 132 tests.

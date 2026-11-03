@@ -29,5 +29,5 @@ class AuditLogEntry{
         std::optional<double> getOldMark() const { return oldMark; }
         double getNewMark() const { return newMark; }
         DateTime getChangedAt() const { return changedAt; }
-        std::string getReason() const { return reason; }
+        const std::string& getReason() const { return reason; }
 };

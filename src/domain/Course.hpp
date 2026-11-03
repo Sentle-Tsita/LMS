@@ -16,8 +16,8 @@ class Course{
             departmentId(did),
             lecturerId(lid) {}
 
-        std::string getCourseCode() const { return courseCode; }
-        std::string getCourseName() const { return courseName; }
+        const std::string& getCourseCode() const { return courseCode; }
+        const std::string& getCourseName() const { return courseName; }
         int getDepartmentId() const { return departmentId;}
         std::optional<int> getLecturerId() const { return lecturerId; }
         void setCourseName(const std::string& newCourseName) { courseName = newCourseName; }
