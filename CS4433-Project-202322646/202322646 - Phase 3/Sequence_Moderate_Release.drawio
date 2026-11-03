@@ -1,0 +1,160 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Moderate and release marks" id="sq1">
+    <mxGraphModel dx="3043" dy="1836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1240" pageHeight="1026" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="6DqNURo45ylAf8qS6eDw-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="1010" width="1220" x="10" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-3" parent="1" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;fontSize=11;fontStyle=1;" value="Head of Department" vertex="1">
+          <mxGeometry height="916" width="30" x="131" y="58" as="geometry" />
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-4" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;fillColor=#EAF1FB;strokeColor=#000000;fontSize=11;fontStyle=1;" value=":ModerationService" vertex="1">
+          <mxGeometry height="922" width="135" x="379" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-5" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;fillColor=#EAF1FB;strokeColor=#000000;fontSize=11;fontStyle=1;" value="submissions:Repository&amp;lt;Submission&amp;gt;" vertex="1">
+          <mxGeometry height="922" width="237" x="628" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-6" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;fillColor=#EAF1FB;strokeColor=#000000;fontSize=11;fontStyle=1;" value="auditLog:Repository&amp;lt;AuditLogEntry&amp;gt;" vertex="1">
+          <mxGeometry height="922" width="237" x="928" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-7" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=44;height=20;fontSize=10;fontStyle=1;fillColor=none;" value="loop" vertex="1">
+          <mxGeometry height="502" width="1060" x="76" y="302" as="geometry" />
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-8" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;" value="[for each marked submission]" vertex="1">
+          <mxGeometry height="20" width="520" x="126" y="302" as="geometry" />
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-9" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=44;height=20;fontSize=10;fontStyle=1;fillColor=none;" value="loop" vertex="1">
+          <mxGeometry height="74" width="1060" x="76" y="846" as="geometry" />
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-10" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;" value="[for each approved submission]" vertex="1">
+          <mxGeometry height="20" width="520" x="126" y="846" as="geometry" />
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-11" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=44;height=20;fontSize=10;fontStyle=1;fillColor=none;" value="opt" vertex="1">
+          <mxGeometry height="352" width="1040" x="86" y="336" as="geometry" />
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-12" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;" value="[HoD changes the mark]" vertex="1">
+          <mxGeometry height="20" width="520" x="136" y="336" as="geometry" />
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-13" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=44;height=20;fontSize=10;fontStyle=1;fillColor=none;" value="alt" vertex="1">
+          <mxGeometry height="270" width="1020" x="96" y="404" as="geometry" />
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-14" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;" value="[reason is empty]" vertex="1">
+          <mxGeometry height="20" width="520" x="146" y="404" as="geometry" />
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-15" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="96" y="478" as="sourcePoint" />
+            <mxPoint x="1116" y="478" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-16" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;" value="[reason given]" vertex="1">
+          <mxGeometry height="20" width="520" x="104" y="479" as="geometry" />
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-17" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;verticalAlign=bottom;rounded=0;curved=0;fontSize=10;" value="getMarkedForDepartment(departmentId)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="146" y="192" as="sourcePoint" />
+            <mxPoint x="446" y="192" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-18" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;verticalAlign=bottom;rounded=0;curved=0;fontSize=10;" value="findWhere({departmentId, status = MARKED})">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="446" y="226" as="sourcePoint" />
+            <mxPoint x="746" y="226" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-19" edge="1" parent="1" style="dashed=1;endArrow=open;endSize=8;html=1;verticalAlign=bottom;rounded=0;curved=0;fontSize=10;" value="marked Submissions">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="746" y="260" as="sourcePoint" />
+            <mxPoint x="446" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-20" edge="1" parent="1" style="dashed=1;endArrow=open;endSize=8;html=1;verticalAlign=bottom;rounded=0;curved=0;fontSize=10;" value="list of marked submissions">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="446" y="294" as="sourcePoint" />
+            <mxPoint x="146" y="294" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-21" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;verticalAlign=bottom;rounded=0;curved=0;fontSize=10;" value="changeMark(id, newMark, reason)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="146" y="396" as="sourcePoint" />
+            <mxPoint x="446" y="396" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-22" edge="1" parent="1" style="dashed=1;endArrow=open;endSize=8;html=1;verticalAlign=bottom;rounded=0;curved=0;fontSize=10;" value="error: reason required">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="446" y="464" as="sourcePoint" />
+            <mxPoint x="146" y="464" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-23" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;verticalAlign=bottom;rounded=0;curved=0;fontSize=10;" value="findById(id)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="446" y="524" as="sourcePoint" />
+            <mxPoint x="746" y="524" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-24" edge="1" parent="1" style="dashed=1;endArrow=open;endSize=8;html=1;verticalAlign=bottom;rounded=0;curved=0;fontSize=10;" value="Submission (old mark)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="746" y="558" as="sourcePoint" />
+            <mxPoint x="446" y="558" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-25" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;verticalAlign=bottom;rounded=0;curved=0;fontSize=10;" value="save(AuditLogEntry: who, when, old mark, new mark, reason)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="446" y="592" as="sourcePoint" />
+            <mxPoint x="1046" y="592" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-26" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;verticalAlign=bottom;rounded=0;curved=0;fontSize=10;" value="save(Submission with new mark)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="446" y="626" as="sourcePoint" />
+            <mxPoint x="746" y="626" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-27" edge="1" parent="1" style="dashed=1;endArrow=open;endSize=8;html=1;verticalAlign=bottom;rounded=0;curved=0;fontSize=10;" value="mark changed">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="446" y="660" as="sourcePoint" />
+            <mxPoint x="146" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-28" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;verticalAlign=bottom;rounded=0;curved=0;fontSize=10;" value="approveMark(id)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="146" y="722" as="sourcePoint" />
+            <mxPoint x="446" y="722" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-29" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;verticalAlign=bottom;rounded=0;curved=0;fontSize=10;" value="save(Submission, status = MODERATED)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="446" y="756" as="sourcePoint" />
+            <mxPoint x="746" y="756" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-30" edge="1" parent="1" style="dashed=1;endArrow=open;endSize=8;html=1;verticalAlign=bottom;rounded=0;curved=0;fontSize=10;" value="approved">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="446" y="790" as="sourcePoint" />
+            <mxPoint x="146" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-31" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;verticalAlign=bottom;rounded=0;curved=0;fontSize=10;" value="releaseMarks(ids)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="146" y="838" as="sourcePoint" />
+            <mxPoint x="446" y="838" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-32" edge="1" parent="1" style="endArrow=block;endFill=1;html=1;verticalAlign=bottom;rounded=0;curved=0;fontSize=10;" value="save(Submission, status = RELEASED)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="446" y="906" as="sourcePoint" />
+            <mxPoint x="746" y="906" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6DqNURo45ylAf8qS6eDw-33" edge="1" parent="1" style="dashed=1;endArrow=open;endSize=8;html=1;verticalAlign=bottom;rounded=0;curved=0;fontSize=10;" value="released: students can now see marks and feedback">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="446" y="954" as="sourcePoint" />
+            <mxPoint x="146" y="954" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

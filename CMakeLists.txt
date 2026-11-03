@@ -74,3 +74,43 @@ if(LMS_BUILD_TESTS)
     include(GoogleTest)
     gtest_discover_tests(lms_tests)
 endif()
+
+install(TARGETS lms
+    RUNTIME DESTINATION .
+)
+
+install(FILES
+    README.md
+    CODING_STANDARD.md
+    DESTINATION .
+)
+
+install(FILES
+    packaging/start-lms.bat
+    packaging/start-lms-demo.bat
+    DESTINATION .
+)
+
+install(FILES
+    sql/schema.sql
+    DESTINATION sql
+)
+
+# ZIP package configuration
+set(CPACK_GENERATOR "ZIP")
+set(CPACK_PACKAGE_NAME "LMS")
+set(CPACK_PACKAGE_VERSION "1.0.0")
+set(CPACK_PACKAGE_FILE_NAME "LMS-v1.0")
+set(CPACK_PACKAGE_DIRECTORY "${CMAKE_BINARY_DIR}/packages")
+
+include(CPack)
+
+# Include MinGW runtime DLLs in the release package
+get_filename_component(MINGW_BIN_DIR "${CMAKE_CXX_COMPILER}" DIRECTORY)
+
+install(FILES
+    "${MINGW_BIN_DIR}/libgcc_s_seh-1.dll"
+    "${MINGW_BIN_DIR}/libstdc++-6.dll"
+    "${MINGW_BIN_DIR}/libwinpthread-1.dll"
+    DESTINATION .
+)

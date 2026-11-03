@@ -19,8 +19,8 @@ class Assignment{
             maxMark(mm) {}
 
         int getAssignmentId() const { return assignmentId;}
-        std::string getCourseCode() const { return courseCode;}
-        std::string getTitle() const { return title; }
+        const std::string& getCourseCode() const { return courseCode; }
+        const std::string& getTitle() const { return title; }
         DateTime getDeadline() const { return deadline;}
         double getMaxMark() const {return maxMark;}
 };

@@ -1,9 +1,37 @@
-Static analysis with cppcheck 2.13.0 on 2026-11-01
-Command: cppcheck --enable=warning,style,performance,portability --std=c++17 --error-exitcode=1 --inline-suppr -I src src
+﻿STATIC ANALYSIS REPORT
+Project: Moderated Learning Management System (LMS)
+Date: 3 November 2026
+Tool: Cppcheck
+Language standard: C++17
 
-First run: 10 findings (3 real, 7 style). All were fixed:
-  constParameterReference  Statement constructor now takes const Database&
-  passedByValue (2)        Course::setCourseName and Department::setName now take const std::string&
-  useStlAlgorithm (7)      raw loops replaced by std::any_of, std::copy_if and vector::insert
+Command:
+cppcheck --enable=warning,style,performance,portability --std=c++17 --error-exitcode=1 --inline-suppr -I src src
 
-Final run: no findings, exit code 0
+Result:
+PASS - All 11 source files checked.
+Exit code: 0
+No warnings or errors reported.
+
+Checking src\data\Database.cpp ...
+1/11 files checked 5% done
+Checking src\data\Statement.cpp ...
+2/11 files checked 10% done
+Checking src\main.cpp ...
+3/11 files checked 15% done
+Checking src\security\PasswordHasher.cpp ...
+Checking src\security\PasswordHasher.cpp: _WIN32=_WIN32...
+4/11 files checked 22% done
+Checking src\services\AccountService.cpp ...
+5/11 files checked 31% done
+Checking src\services\AssignmentService.cpp ...
+6/11 files checked 39% done
+Checking src\services\ModerationService.cpp ...
+7/11 files checked 47% done
+Checking src\services\SubmissionService.cpp ...
+8/11 files checked 59% done
+Checking src\storage\FileStorage.cpp ...
+9/11 files checked 65% done
+Checking src\ui\ConsoleApp.cpp ...
+10/11 files checked 98% done
+Checking src\ui\DemoData.cpp ...
+11/11 files checked 100% done
