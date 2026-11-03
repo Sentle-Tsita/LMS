@@ -1,0 +1,60 @@
+Line coverage, measured with gcov and gcovr on 2026-11-01
+
+== Business-logic layer (src/services)
+lines: 98.6% (285 out of 289)
+functions: 93.5% (43 out of 46)
+
+== Business logic, domain, security, storage and utilities
+lines: 97.1% (537 out of 553)
+functions: 97.6% (124 out of 127)
+
+== Whole program (adds the data layer and the console menus)
+lines: 82.0% (1506 out of 1837)
+functions: 97.2% (313 out of 322)
+
+== Per file (lines, executed, coverage, uncovered line numbers)
+File                                         Lines     Exec  Cover   Missing
+src/data/CourseRepository.hpp                   20       20   100%
+src/data/Database.cpp                           63       49    77%   19,28-32,71,104,111,113-114,116-118
+src/data/Database.hpp                            2        2   100%
+src/data/EntityMapper.hpp                        7        7   100%
+src/data/Mappers.hpp                           118      111    94%   50-52,143-145,151
+src/data/Repository.hpp                          7        7   100%
+src/data/SqliteRepository.hpp                  654      473    72%   25,25,35,35-36,36-37,37-38,38-39,39,41,41
+src/data/Statement.cpp                          54       43    79%   17,19-21,24-25,46,55,64,73,100
+src/data/SubmissionRepository.hpp               29       28    96%   34
+src/domain/Administrator.hpp                     4        4   100%
+src/domain/Assignment.hpp                       11       11   100%
+src/domain/AuditLogEntry.hpp                    15       15   100%
+src/domain/Course.hpp                           10       10   100%
+src/domain/Department.hpp                        7        7   100%
+src/domain/Extension.hpp                         9        9   100%
+src/domain/HeadOfDepartment.hpp                  4        4   100%
+src/domain/LatePenaltyStrategy.hpp               1        1   100%
+src/domain/Lecturer.hpp                          4        4   100%
+src/domain/StandardLatePenalty.hpp              11       11   100%
+src/domain/Student.hpp                           4        4   100%
+src/domain/Submission.hpp                       17       17   100%
+src/domain/SubmissionStatus.hpp                 17       13    76%   22,24,33-34
+src/domain/User.hpp                             13       13   100%
+src/domain/UserFactory.hpp                      10       10   100%
+src/main.cpp                                    36        0     0%   20,22,24,26-27,29-35,37-43,45-47,49-52,54
+src/security/PasswordHasher.cpp                 27       24    88%   29,41,66
+src/security/PasswordHasher.hpp                  1        1   100%
+src/services/AccountService.cpp                 74       71    95%   102-104
+src/services/AccountService.hpp                  2        2   100%
+src/services/AssignmentService.cpp              60       60   100%
+src/services/AssignmentService.hpp               2        2   100%
+src/services/Errors.hpp                          2        2   100%
+src/services/ModerationService.cpp              54       53    98%   17
+src/services/ModerationService.hpp               2        2   100%
+src/services/SubmissionService.cpp              90       90   100%
+src/services/SubmissionService.hpp               3        3   100%
+src/storage/FileStorage.cpp                     35       32    91%   40,54,60
+src/storage/FileStorage.hpp                      1        1   100%
+src/ui/ConsoleApp.cpp                          279      226    81%   39-41,62-65,67-69,89-92,114-116,131,167,1
+src/ui/ConsoleApp.hpp                            3        3   100%
+src/ui/DemoData.cpp                             12        0     0%   5-13,15-17
+src/util/DateTimeUtil.hpp                       57       55    96%   48-49
+src/util/StringUtil.hpp                          6        6   100%
+TOTAL                                         1837     1506    82%
